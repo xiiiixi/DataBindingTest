@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+            <import type="com.example.c7.databindingtest.model.Goods"/>
+            <import type="com.example.c7.databindingtest.Main2Activity.GoodsHandler"/>
+            <variable
+                name="goods"
+                type="Goods"/>
+            <variable
+                name="goodsHandler"
+                type="GoodsHandler"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{goods.name}"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{goods.details}" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(goods.price)}" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->goodsHandler.changeGoodsName()}"
+            android:text="@string/change_name_price"
+            android:textAllCaps="false"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->goodsHandler.changeGoodsDetails()}"
+            android:text="@string/change_details_price"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</layout>
